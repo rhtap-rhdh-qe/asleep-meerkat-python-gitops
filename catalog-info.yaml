@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: asleep-meerkat-python-gitops
+  description: This is GitOps manifest for asleep-meerkat-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: asleep-meerkat-python
+    janus-idp.io/tekton: asleep-meerkat-python 
+    backstage.io/kubernetes-id: asleep-meerkat-python 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:asleep-meerkat-python
